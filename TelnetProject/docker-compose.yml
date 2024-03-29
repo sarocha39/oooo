@@ -1,0 +1,16 @@
+version: '3'
+services:
+  php:
+    container_name: phpMNP
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./project:/var/www/html/
+    ports:
+      - 8808:80
+  ssh:
+    container_name: sshMNP
+    image: rastasheep/ubuntu-sshd
+    ports:
+      - "2222:22"
